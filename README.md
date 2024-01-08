@@ -8,10 +8,12 @@ This game was created using the following functions.
 
 '''
 
-    void recuperer_proposition(char proposition[5][20]) {
+    void retrieve_proposal(char proposal[5][20]) {
     for (int i = 0; i < 5; i++)
     {
-        scanf("%s", proposition [i]);
+        printf(" Enter your suggestion about box %d: ", i+1);
+        scanf("%s", proposal[i]);
+
     }
     }
     
@@ -21,29 +23,31 @@ This game was created using the following functions.
 
 '''
     
-    void evaluer(char combinaison[5][20], char proposition[5][20], int* nbBien, int* nbMal) {
-    *nbBien = 0;
-    *nbMal = 0;
+    void evaluate(char combination[5][20], char proposal[5][20], int* nbGood, int* nbBad) {
+    *nbGood = 0;
+    *nbBad = 0;
+
     for (int i = 0; i < 5; i++)
-     {
-     if (strcmp(combinaison[i], proposition[i]) == 0)
+    {
+    if (strcmp(combination[i], proposal[i]) == 0)
         {
-            (*nbBien)++;
-            printf("%d un poin bien place\n",i+1);
+            (*nbGood)++;
+            printf("%d A well-placed point \n",i+1);
         } else
         {
             for (int j = 0; j < 5; j++)
             {
-                if (i != j && strcmp(combinaison[j], proposition[i]) == 0)
+                if (i != j && strcmp(combination[i], proposal[j]) == 0)
                 {
-                    (*nbMal)++;
-                    printf("%d un poin mal place\n",i+1);
+                    (*nbBad)++;
+                    printf("%d A badly placed point \n",i+1);
                     break;
                 }
             }
         }
-      }
     }
+    }
+
 
 
 -The "jeu()" function progresses the game until the decoder guesses the codebreaker's combination or the maximum number of attempts is reached.
@@ -51,29 +55,42 @@ This game was created using the following functions.
  '''
 
     void jeu() {
-
+    printf(" \t\t    start! \n");
+    printf("    There is 5 box array and there are 8 color guess the color of each box \n");
+     printf(" The colors is: red, yellow, blue, green, purple, gray, black, white\n");
+    char colors[8][20] = {"red","yellow","blue","green","purple","gray","black","white\n"};
     srand(time(0));
-    char combinaison[5][20];
+
+    char combination[5][20];
     for (int i = 0; i < 5; i++) {
         int randomNumber = rand() % 8;
-        sprintf(combinaison[i], "%s", colors[randomNumber]);
+        sprintf(combination[i], "%s", colors[randomNumber]);
     }
     int chances = 10;
-      int nbBien, nbMal;
+      int nbGood, nbBad;
+
+
     while (chances > 0) {
-        char proposition[5][20];
-        recuperer_proposition(proposition);
-        evaluer(combinaison, proposition, &nbBien, &nbMal);
-        if (nbBien == 5) {
-            printf("congratulations !\n");
+        printf("\n\t\t\tThere are %d chances for you \n\n", chances);
+
+        char proposal[5][20];
+        retrieve_proposal(proposal);
+        evaluate(combination, proposal, &nbGood, &nbBad);
+        printf(" Number of colors well placed : %d\n", nbGood);
+        printf(" Number of colors misplaced : %d\n", nbBad);
+
+        if (nbGood == 5) {
+            printf("  congratulations !\n");
             break;
         } else {
             chances--;
         }
     }
 
-     if (chances == 0) 
-     {
+    if (chances == 0) {
         printf("game over!\n");
-     }
+        for (int i = 0; i < 5; i++) {
+        printf("%d:%s\t",i,combination[i]);
     }
+    }
+}
