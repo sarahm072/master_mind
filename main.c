@@ -63,6 +63,7 @@ void jeu() {
         printf(" Number of colors misplaced : %d\n", nbBad);
 
         if (nbGood == 5) {
+            system("@cls||clear");
             printf("  congratulations !\n");
             break;
         } else {
@@ -71,6 +72,7 @@ void jeu() {
     }
 
     if (chances == 0) {
+        system("@cls||clear");
         printf("game over!\n");
         for (int i = 0; i < 5; i++) {
         printf("%d:%s\t",i,combination[i]);
@@ -79,7 +81,6 @@ void jeu() {
 }
 
 int main() {
-    system("cls");
     jeu();
     return 0;
 }
