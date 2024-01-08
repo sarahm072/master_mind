@@ -79,6 +79,7 @@ void jeu() {
 }
 
 int main() {
+    system("cls");
     jeu();
     return 0;
 }
