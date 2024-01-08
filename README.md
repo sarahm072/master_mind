@@ -1,10 +1,10 @@
-# Jeu Mester mind
-Master mind est un jeu de sociétè pour deux joueurs dont le but est trouver un code (couleur et position de 5 pions ) en 10 coups.
-## Faire de jeu
+# Game Master mind
+Mastermind is a board game for two players whose goal is to find a code (color and position of 5 pegs) in 10 turns.
+## Make game
 
-Cette jeu a été créé à l'aide des fonctions suivantes
+This game was created using the following functions.
 
-- la fonction recouper_proposition() qui récupère la proposition du décodeur
+- The function "recouper_proposition()" retrieves the decoder's guess.
 
 '''
 
@@ -17,7 +17,7 @@ Cette jeu a été créé à l'aide des fonctions suivantes
     
 
 
-- la fonction evaluer() qui compare la combinaison du codificateur et la proposition décodeur et déduit le nombre de pions bien placés et le nombre d epionts mal placés
+- The "evaluer()" function compares the codebreaker's combination with the decoder's guess. It determines the number of correctly placed pawns and the number of incorrectly placed pawns.
 
 '''
     
@@ -46,7 +46,7 @@ Cette jeu a été créé à l'aide des fonctions suivantes
     }
 
 
--le fonction jeu() qui déroule le jeu jusqu'à ce que le décodeur devine la codificateur, ou que le nombre d'essais maximal soit atteint
+-The "jeu()" function progresses the game until the decoder guesses the codebreaker's combination or the maximum number of attempts is reached.
  
  '''
 
