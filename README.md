@@ -1,4 +1,4 @@
-# Game Master mind
+# Game Mastermind
 Mastermind is a board game for two players whose goal is to find a code (color and position of 5 pegs) in 10 turns.
 ## Make game
 
