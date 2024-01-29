@@ -76,7 +76,7 @@ void jeu() {
         sprintf(combination[i], "%s", colors[randomNumber]);
     }
       int nbGood, nbBad;
-       int chances=2 ;
+       int chances=10 ;
     while (chances > 0) {
         printf("\n\t There are %d chances for you \n\n", chances);
         char proposal[NUM_PAWNS][20];
